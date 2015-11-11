@@ -10,7 +10,7 @@ exports.getObject = function(){
     object.config = function(options){
         object.options.name =  options.user_name || options.client_name,
         object.options.key_contents = options.key || fs.readFileSync(options.key_path),
-        object.options.host_url = options.url || ["https://api.opscode.com/organizations", options.organization].join("/")
+        object.options.host_url = [options.url || "https://api.opscode.com/organizations", options.organization].join("/")
         if(options.hasOwnProperty("ca")) {
             // absent means default,
             // null means unsafe,
